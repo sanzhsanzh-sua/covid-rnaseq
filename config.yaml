@@ -1,0 +1,49 @@
+# ============================================================
+# Configuration for the COVID-19 RNA-seq differential expression workflow
+# (GSE152418 PBMC RNA-seq: download -> QC -> DESeq2 -> plots -> GO enrichment)
+# ============================================================
+
+# GEO series to download
+gse_id: "GSE152418"
+
+# Working directories (created automatically by the workflow)
+data_dir: "data"
+results_dir: "results"
+plots_dir: "plots"
+
+# Column in the GEO phenotype table that holds the sample condition/group.
+# After the first run, inspect data/<gse_id>_pheno.csv and adjust this if
+# the actual column name differs (GEO series vary in metadata naming).
+condition_column: "disease state:ch1"
+
+# DESeq2 contrast: [factor, numerator level, denominator level].
+# The two levels must exactly match the values present in condition_column.
+# Confirmed from the actual GSE152418 phenotype data: levels are
+# "COVID-19", "Healthy", "Convalescent" (note capitalization).
+contrast: ["condition", "COVID-19", "Healthy"]
+
+# QC filter: minimum total read count (summed across samples) for a gene to
+# be kept before running DESeq2.
+min_count_sum: 10
+
+# Threads to give the DESeq2 rule (DESeq() can parallelize via BiocParallel).
+deseq2_threads: 1
+
+# Number of top differentially expressed genes to show in the heatmap.
+heatmap_top_n: 30
+
+# Volcano plot parameters (EnhancedVolcano)
+volcano:
+  p_cutoff: 0.05
+  fc_cutoff: 1
+  title: "COVID-19 vs Healthy (PBMC)"
+
+# GO enrichment parameters (clusterProfiler::enrichGO)
+# key_type is "ENSEMBL" because GSE152418's counts matrix is indexed by
+# Ensembl gene ID (e.g. ENSG00000223972), not by gene symbol.
+go_enrichment:
+  padj_cutoff: 0.05
+  lfc_cutoff: 1
+  ontology: "BP"
+  key_type: "ENSEMBL"
+  p_adjust_method: "BH"

@@ -1,0 +1,15 @@
+name: covid-rnaseq
+channels:
+  - conda-forge
+  - bioconda
+  - defaults
+dependencies:
+  - snakemake-minimal>=7
+  - r-base>=4.2
+  - bioconductor-geoquery
+  - bioconductor-deseq2
+  - bioconductor-clusterprofiler
+  - bioconductor-org.hs.eg.db
+  - bioconductor-enhancedvolcano
+  - r-pheatmap
+  - r-ggplot2
