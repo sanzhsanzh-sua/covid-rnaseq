@@ -9,3 +9,10 @@ logs/
 
 # Claude Code local settings
 .claude/
+
+# Python (environment.yaml pins a Python interpreter for Snakemake itself)
+__pycache__/
+*.pyc
+.venv/
+venv/
+*.egg-info/
