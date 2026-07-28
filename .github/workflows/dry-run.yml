@@ -1,0 +1,22 @@
+name: Snakemake dry-run
+
+"on":
+  push
+
+jobs:
+  dry-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up conda environment
+        uses: conda-incubator/setup-miniconda@v3
+        with:
+          environment-file: environment.yaml
+          activate-environment: covid-rnaseq
+          auto-activate-base: false
+
+      - name: Validate Snakefile with a dry-run
+        shell: bash -el {0}
+        run: snakemake -n
