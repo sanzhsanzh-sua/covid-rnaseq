@@ -1,6 +1,7 @@
 # covid-rnaseq
 
 [![Snakemake dry-run](https://github.com/sanzhsanzh-sua/covid-rnaseq/actions/workflows/dry-run.yml/badge.svg)](https://github.com/sanzhsanzh-sua/covid-rnaseq/actions/workflows/dry-run.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Snakemake workflow for differential expression analysis of GSE152418
 (COVID-19 PBMC RNA-seq): download from GEO -> counts matrix -> QC ->
