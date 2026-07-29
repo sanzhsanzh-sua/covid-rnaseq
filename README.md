@@ -1,4 +1,4 @@
-# covid-rnaseq
+# covid-rnaseq-snakemake
 
 [![Snakemake dry-run](https://github.com/sanzhsanzh-sua/covid-rnaseq/actions/workflows/dry-run.yml/badge.svg)](https://github.com/sanzhsanzh-sua/covid-rnaseq/actions/workflows/dry-run.yml)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
