@@ -15,7 +15,7 @@ jobs:
         with:
           environment-file: environment.yaml
           activate-environment: covid-rnaseq
-          auto-activate-base: false
+          auto-activate: false
 
       - name: Validate Snakefile with a dry-run
         shell: bash -el {0}
